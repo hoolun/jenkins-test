@@ -9,11 +9,24 @@ public class BankAccount {
   }
 
   public double debit(double amount) {
+    if (amount < 0) {
+      amount = 0;
+    }
+
     if (balance < amount) {
       amount = balance;
     }
 
     balance -= amount;
+    return amount;
+  }
+
+  public double credit(double amount) {
+    if (amount < 0) {
+      amount = 0;
+    }
+
+    balance += amount;
     return amount;
   }
 
