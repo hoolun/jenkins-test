@@ -21,10 +21,24 @@ public class TestBankAccount {
   }
 
   @Test
-  public void testDebitWithNegativeFunds() {
+  public void testNegativeDebitAmount() {
     BankAccount account = new BankAccount(10);
     double amount = account.debit(-115);
     Assert.assertEquals(0.0, amount);
+  }
+
+  @Test
+  public void testNegativeCreditAmount() {
+    BankAccount account = new BankAccount(10);
+    double amount = account.credit(-115);
+    Assert.assertEquals(0.0, amount);
+  }
+
+  @Test
+  public void testCredit() {
+    BankAccount account = new BankAccount(10);
+    double amount = account.credit(115);
+    Assert.assertEquals(115.0, amount);
   }
 
 }
